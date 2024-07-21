@@ -1,6 +1,13 @@
 import express, {Request,Response} from "express"; // Request,Response @types come from express
 import cors from "cors";
 import "dotenv/config";
+import mongoose from "mongoose";
+
+//Database connection
+mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string).then(()=>{
+  console.log('conected to DataBase !');
+  
+})
 
 const app = express(); // create new express server  
 app.use(express.json()) // middle ware automatically convert body of any req we make to api server to JSON
